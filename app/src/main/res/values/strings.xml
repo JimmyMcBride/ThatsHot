@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">That\'s Hot</string>
+    <string name="sub_title">Recipes so good, they\'ll make you sexy!</string>
+    <string name="new_recipe">add new recipe</string>
+    <string name="no_recipes">You don\'t have any recipes yet. Hit the \'ADD NEW RECIPE\' to get started!</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="recipe_description">Recipe description...</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="add_some_ingredients">Add some ingredients...</string>
+    <string name="add">+</string>
+    <string name="name">Name</string>
+    <string name="unit">Unit</string>
+    <string name="amount">Amount</string>
+    <string name="go_home">go home</string>
+    <string name="edit">edit</string>
+    <string name="save">save</string>
+    <string name="quit">quit</string>
+    <string name="go_back">go back</string>
+    <string name="x">x</string>
+    <string name="cancel">cancel</string>
+</resources>
