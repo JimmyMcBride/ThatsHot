@@ -9,15 +9,12 @@ import com.example.thatshot.models.DummyIngredient
 
 class IngredientListAdapter(
     private val ingredients: List<DummyIngredient>,
-//    private val selectedRecipe: (DummyIngredient) -> Unit,
     private val editable: Boolean
 ) : RecyclerView.Adapter<IngredientListAdapter.IngredientViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
-    ) = IngredientViewHolder.getInstance(parent).apply {
-//        itemView.setOnClickListener { selectedRecipe(ingredients[adapterPosition]) }
-    }
+    ) = IngredientViewHolder.getInstance(parent)
 
     override fun onBindViewHolder(holder: IngredientViewHolder, position: Int) {
         holder.loadIngredient(ingredients[position], editable)
