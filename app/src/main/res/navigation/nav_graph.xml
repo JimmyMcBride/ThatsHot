@@ -39,7 +39,7 @@
             app:destination="@id/homeFragment" />
         <argument
             android:name="recipe"
-            app:argType="com.example.thatshot.models.DummyRecipe" />
+            app:argType="com.example.thatshot.repo.models.DummyRecipe" />
     </fragment>
     <fragment
         android:id="@+id/editRecipeFragment"
@@ -51,7 +51,7 @@
             app:destination="@id/homeFragment" />
         <argument
             android:name="recipe"
-            app:argType="com.example.thatshot.models.DummyRecipe" />
+            app:argType="com.example.thatshot.repo.models.DummyRecipe" />
     </fragment>
 
 </navigation>

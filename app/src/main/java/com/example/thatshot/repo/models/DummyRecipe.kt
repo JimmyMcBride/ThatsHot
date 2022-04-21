@@ -1,4 +1,4 @@
-package com.example.thatshot.models
+package com.example.thatshot.repo.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

@@ -5,7 +5,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.thatshot.databinding.IngredientItemBinding
 import com.example.thatshot.extensions.layoutInflater
-import com.example.thatshot.models.DummyIngredient
+import com.example.thatshot.repo.models.DummyIngredient
 
 class IngredientListAdapter(
     private val ingredients: List<DummyIngredient>,

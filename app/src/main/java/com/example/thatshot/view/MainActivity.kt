@@ -1,13 +1,18 @@
 package com.example.thatshot.view
 
 import android.content.Context
+import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.thatshot.R
-import com.example.thatshot.models.DummyIngredient
-import com.example.thatshot.models.DummyRecipe
+import com.example.thatshot.databinding.ActivityMainBinding
+import com.example.thatshot.repo.models.DummyIngredient
+import com.example.thatshot.repo.models.DummyRecipe
+
 
 val Context.data by lazy {
-    mutableListOf<DummyRecipe>(
+    mutableListOf(
         DummyRecipe(
             1,
             "Hot Dog",
@@ -30,4 +35,20 @@ val Context.data by lazy {
     )
 }
 
-class MainActivity : AppCompatActivity(R.layout.activity_main)
+class MainActivity : AppCompatActivity() {
+
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+
+
+
+        supportActionBar?.let {
+                titleColor = getColor(R.color.gray_800)
+
+        }
+
+    }
+}

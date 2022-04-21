@@ -9,8 +9,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.thatshot.adapter.IngredientListAdapter
 import com.example.thatshot.databinding.FragmentViewRecipeBinding
-import com.example.thatshot.models.DummyIngredient
-import com.example.thatshot.models.DummyRecipe
 
 class ViewRecipeFragment : Fragment() {
     private var _binding: FragmentViewRecipeBinding? = null

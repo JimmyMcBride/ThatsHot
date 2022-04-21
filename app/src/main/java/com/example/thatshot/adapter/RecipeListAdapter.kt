@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.thatshot.databinding.RecipeCardBinding
 import com.example.thatshot.extensions.layoutInflater
-import com.example.thatshot.models.DummyRecipe
+import com.example.thatshot.repo.models.DummyRecipe
 
 class RecipeListAdapter(
     private val recipes: List<DummyRecipe>,

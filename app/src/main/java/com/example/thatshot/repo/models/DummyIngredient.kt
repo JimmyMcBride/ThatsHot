@@ -1,4 +1,4 @@
-package com.example.thatshot.models
+package com.example.thatshot.repo.models
 
 import java.io.Serializable
 

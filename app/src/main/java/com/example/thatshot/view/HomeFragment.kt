@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.thatshot.adapter.RecipeListAdapter
 import com.example.thatshot.databinding.FragmentHomeBinding
-import com.example.thatshot.models.DummyIngredient
-import com.example.thatshot.models.DummyRecipe
+import com.example.thatshot.repo.models.DummyRecipe
 
 class HomeFragment : Fragment() {
 

@@ -1,7 +1,6 @@
 package com.example.thatshot.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.thatshot.adapter.IngredientListAdapter
 import com.example.thatshot.databinding.FragmentAddRecipeBinding
-import com.example.thatshot.models.DummyIngredient
+import com.example.thatshot.repo.models.DummyIngredient
 
 class AddRecipeFragment : Fragment() {
     private var _binding: FragmentAddRecipeBinding? = null
@@ -26,6 +25,7 @@ class AddRecipeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initViews()
     }
 
@@ -56,7 +56,5 @@ class AddRecipeFragment : Fragment() {
             itIngredientUnit.text?.clear()
             rvIngredients.adapter = IngredientListAdapter(ingredients, false)
         }
-
-
     }
 }
