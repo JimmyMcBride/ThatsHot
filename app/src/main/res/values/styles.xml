@@ -9,6 +9,6 @@
 
     <style name="NavButtonRound">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">30%</item>
+        <item name="cornerSize">31%</item>
     </style>
 </resources>
