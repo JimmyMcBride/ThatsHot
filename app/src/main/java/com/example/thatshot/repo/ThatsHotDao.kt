@@ -13,4 +13,10 @@ interface ThatsHotDao {
 
     @Update
     suspend fun updateRecipe(item: Recipe)
+
+    @Query("DELETE FROM recipes_table WHERE id = :id")
+    suspend fun deleteByID(id: Int)
+
+    @Query("SELECT * FROM recipes_table WHERE id = :id")
+    suspend fun fetchByID(id: Int): MutableList<Recipe>
 }

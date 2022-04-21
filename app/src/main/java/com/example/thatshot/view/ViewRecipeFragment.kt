@@ -1,20 +1,31 @@
 package com.example.thatshot.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.thatshot.adapter.IngredientListAdapter
 import com.example.thatshot.databinding.FragmentViewRecipeBinding
+import com.example.thatshot.repo.ThatsHotRepoImplementation
+import com.example.thatshot.util.StateResource
+import com.example.thatshot.viewmodel.RecipeListViewModel
+import com.example.thatshot.viewmodel.RecipeListViewmodelFactory
 
 class ViewRecipeFragment : Fragment() {
     private var _binding: FragmentViewRecipeBinding? = null
     private val binding get() = _binding!!
     private val args by navArgs<ViewRecipeFragmentArgs>()
-//    private val viewModel by viewModel<>()
+    private val repo by lazy {
+        ThatsHotRepoImplementation(requireContext())
+    }
+    private val viewModel by lazy {
+        ViewModelProvider(this, RecipeListViewmodelFactory(repo))[RecipeListViewModel::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -33,12 +44,49 @@ class ViewRecipeFragment : Fragment() {
     }
 
     private fun initViews() = with(binding) {
-        tvRecipeName.text = args.recipe.name
-        tvRecipeDescription.text = args.recipe.description
-        rvIngredients.adapter = IngredientListAdapter(args.recipe.ingredients, false)
-        btnEditRecipe.setOnClickListener {
-            findNavController().navigate(ViewRecipeFragmentDirections.goToEditRecipeFragment(args.recipe))
+        viewModel.state.observe(viewLifecycleOwner) {
+            when(it) {
+                is StateResource.Error -> {
+                    Log.d("VIEW_FRAGMENT", it.err.toString())
+                    viewModel.setStandby()
+                }
+                is StateResource.Loading -> {
+                    disableButtons()
+                }
+                is StateResource.Standby -> {
+                    enableButtons()
+                }
+                is StateResource.Success -> {
+                    tvRecipeName.text = it.data[0].name
+                    tvRecipeDescription.text = it.data[0].description
+                    rvIngredients.adapter = IngredientListAdapter(it.data[0].ingredients, false)
+                    viewModel.setStandby()
+                }
+            }
         }
 
+        btnEditRecipe.setOnClickListener {
+            findNavController().navigate(ViewRecipeFragmentDirections.goToEditRecipeFragment(args.recipeID))
+        }
+
+        btnDeleteRecipe.setOnClickListener {
+            viewModel.deleteByID(args.recipeID)
+
+            //TODO: OBSERVE THIS???
+            findNavController().navigateUp()
+        }
+
+        viewModel.fetchByID(args.recipeID)
+    }
+
+
+    private fun enableButtons() = with(binding) {
+        btnDeleteRecipe.isEnabled = true
+        btnEditRecipe.isEnabled = true
+    }
+
+    private fun disableButtons() = with(binding) {
+        btnDeleteRecipe.isEnabled = false
+        btnEditRecipe.isEnabled = false
     }
 }

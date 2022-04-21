@@ -26,4 +26,26 @@ class RecipeListViewModel(private val repo: ThatsHotRepoImplementation): ViewMod
         repo.addRecipe(item)
         _state.value = repo.fetchAllRecipes()
     }
+
+    fun deleteByID(id: Int) = viewModelScope.launch(Dispatchers.Main) {
+        setLoading()
+        repo.deleteByID(id)
+        _state.value = repo.fetchAllRecipes()
+    }
+
+    fun fetchRecipes() = viewModelScope.launch(Dispatchers.Main) {
+        setLoading()
+        _state.value = repo.fetchAllRecipes()
+    }
+
+    fun update(item: Recipe) = viewModelScope.launch(Dispatchers.Main) {
+        setLoading()
+        repo.update(item)
+        _state.value = repo.fetchAllRecipes()
+    }
+
+    fun fetchByID(id: Int) = viewModelScope.launch(Dispatchers.Main) {
+        setLoading()
+        _state.value = repo.fetchByID(id)
+    }
 }

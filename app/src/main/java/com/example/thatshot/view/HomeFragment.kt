@@ -49,7 +49,10 @@ class HomeFragment : Fragment() {
         btnAddRecipe.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.goToAddRecipeFragment())
         }
-
+        btnAddSample.setOnClickListener {
+            viewModel.addRecipe(sampleRecipes[0])
+            viewModel.addRecipe(sampleRecipes[1])
+        }
         viewModel.state.observe(viewLifecycleOwner) {
             when(it){
                 is StateResource.Error -> {
@@ -70,12 +73,11 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-        viewModel.addRecipe(sampleRecipes[0])
-        viewModel.addRecipe(sampleRecipes[1])
+        viewModel.fetchRecipes()
     }
 
     private fun recipeSelected(recipe: Recipe) = with(findNavController()) {
-        navigate(HomeFragmentDirections.goToViewRecipeFragment(recipe))
+        navigate(HomeFragmentDirections.goToViewRecipeFragment(recipe.id))
     }
 
     private fun enableButtons() = with(binding) {

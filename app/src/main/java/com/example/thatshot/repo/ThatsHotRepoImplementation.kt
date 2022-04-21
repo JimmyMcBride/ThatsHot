@@ -22,4 +22,21 @@ class ThatsHotRepoImplementation(context: Context): ThatsHotRepo {
             StateResource.Error(e)
         }
     }
+
+    override suspend fun deleteByID(id: Int) = withContext(Dispatchers.IO) {
+        thatsHotDao.deleteByID(id)
+    }
+
+    override suspend fun update(item: Recipe) = withContext(Dispatchers.IO) {
+        thatsHotDao.updateRecipe(item)
+    }
+
+    override suspend fun fetchByID(id: Int): StateResource<MutableList<Recipe>> = withContext(Dispatchers.IO) {
+        return@withContext try {
+            val res = thatsHotDao.fetchByID(id)
+            StateResource.Success(res)
+        } catch (e: Exception) {
+            StateResource.Error(e)
+        }
+    }
 }

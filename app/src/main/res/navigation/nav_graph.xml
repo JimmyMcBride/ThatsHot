@@ -31,8 +31,8 @@
             android:id="@+id/goToEditRecipeFragment"
             app:destination="@id/editRecipeFragment" />
         <argument
-            android:name="recipe"
-            app:argType="com.example.thatshot.repo.models.Recipe" />
+            android:name="recipeID"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/editRecipeFragment"
@@ -43,8 +43,8 @@
             android:id="@+id/goToHomeFragment"
             app:destination="@id/homeFragment" />
         <argument
-            android:name="recipe"
-            app:argType="com.example.thatshot.repo.models.Recipe" />
+            android:name="recipeID"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

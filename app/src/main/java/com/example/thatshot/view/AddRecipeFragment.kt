@@ -82,7 +82,7 @@ class AddRecipeFragment : Fragment() {
             val newRecipe = Recipe(
                 name = itRecipeName.text.toString(),
                 description = itRecipeDescription.text.toString(),
-                ingredients = mutableListOf()
+                ingredients = ingredients
             )
             viewModel.addRecipe(newRecipe)
         }
