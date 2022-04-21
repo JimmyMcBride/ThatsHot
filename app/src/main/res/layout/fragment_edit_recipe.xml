@@ -12,14 +12,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_go_home"
-        android:backgroundTint="@color/indigo_500"
-        android:textColor="@color/indigo_50"
-        android:layout_margin="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/go_home" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_go_back"
@@ -28,7 +20,6 @@
             android:layout_margin="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:text="@string/cancel" />
 
     </LinearLayout>
@@ -44,6 +35,8 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_recipe_name"
             android:layout_gravity="center"
+            android:textColor="@color/gray_50"
+            android:textColorHint="@color/gray_50"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -58,6 +51,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/blue_500"
             android:textColor="@color/blue_50"
+            android:textColorHint="@color/gray_50"
             android:text="@string/edit" />
     </LinearLayout>
 
@@ -72,6 +66,8 @@
             android:id="@+id/it_recipe_name"
             android:layout_weight="1"
             android:layout_width="0dp"
+            android:textColorHint="@color/gray_50"
+            android:textColor="@color/gray_50"
             android:layout_height="wrap_content"
             android:hint="@string/recipe_name" />
 
@@ -105,6 +101,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/gray_50"
             android:gravity="center"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -130,6 +127,8 @@
             android:id="@+id/it_recipe_description"
             android:layout_weight="1"
             android:layout_width="0dp"
+            android:textColorHint="@color/gray_50"
+            android:textColor="@color/gray_50"
             android:layout_height="wrap_content"
             android:hint="@string/recipe_description" />
 

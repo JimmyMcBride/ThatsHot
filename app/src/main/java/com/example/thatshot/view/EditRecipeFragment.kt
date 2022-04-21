@@ -15,7 +15,7 @@ class EditRecipeFragment : Fragment() {
     private var _binding: FragmentEditRecipeBinding? = null
     private val binding get() = _binding!!
     private val args by navArgs<EditRecipeFragmentArgs>()
-//    private val viewModel by activityViewModels<>()
+//    private val viewModel by viewModel<>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -37,9 +37,6 @@ class EditRecipeFragment : Fragment() {
         rvIngredients.adapter = IngredientListAdapter(args.recipe.ingredients, true)
         tvRecipeName.text = args.recipe.name
         tvRecipeDescription.text = args.recipe.description
-        btnGoHome.setOnClickListener {
-            findNavController().navigate(EditRecipeFragmentDirections.goToHomeFragment())
-        }
         btnGoBack.setOnClickListener {
             findNavController().navigateUp()
         }
