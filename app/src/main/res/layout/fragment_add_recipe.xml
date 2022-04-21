@@ -1,117 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:label="@string/add_recipe"
     tools:context=".view.AddRecipeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:gravity="end"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save_recipe"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            android:orientation="horizontal">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_save_recipe"
-                android:backgroundTint="@color/teal_500"
-                android:textColor="@color/teal_50"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/save" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_quit_recipe"
-                android:backgroundTint="@color/red_800"
-                android:textColor="@color/red_50"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/quit" />
-
-        </LinearLayout>
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/it_recipe_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/recipe_name" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/it_recipe_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/recipe_description" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ingredients"
-            android:textAlignment="center" />
-
-        <!--        <com.google.android.material.textview.MaterialTextView-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:textAlignment="center"-->
-        <!--            android:text="@string/add_some_ingredients" />-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/it_ingredient_amount"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="@string/amount"
-                android:inputType="numberDecimal" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/it_ingredient_unit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="@string/unit" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/it_ingredient_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:hint="@string/name" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_add_ingredient"
-                android:backgroundTint="@color/teal_500"
-                android:textColor="@color/teal_50"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:padding="8dp"
-                android:text="@string/add" />
-
-        </LinearLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_ingredients"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/ingredient_item" />
-
-        </ScrollView>
+            android:backgroundTint="@color/teal_500"
+            android:text="@string/save"
+            android:textColor="@color/teal_50" />
 
     </LinearLayout>
 
-</FrameLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/it_recipe_name"
+        android:textColor="@color/gray_50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/gray_50"
+        android:hint="@string/recipe_name" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/it_recipe_description"
+        android:textColor="@color/gray_50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/gray_50"
+        android:hint="@string/recipe_description" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray_50"
+        android:text="@string/ingredients"
+        android:textAlignment="center" />
+
+    <!--        <com.google.android.material.textview.MaterialTextView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textAlignment="center"-->
+    <!--            android:text="@string/add_some_ingredients" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/it_ingredient_amount"
+            android:layout_width="0dp"
+            android:textColor="@color/gray_50"
+            android:textColorHint="@color/gray_50"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/amount"
+            android:inputType="numberDecimal" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/it_ingredient_unit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/gray_50"
+            android:textColor="@color/gray_50"
+            android:layout_weight="1"
+            android:hint="@string/unit" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/it_ingredient_name"
+            android:layout_width="0dp"
+            android:textColor="@color/gray_50"
+            android:textColorHint="@color/gray_50"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:hint="@string/name" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add_ingredient"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:backgroundTint="@color/teal_500"
+            android:padding="8dp"
+            android:text="@string/add"
+            android:textColor="@color/teal_50" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_ingredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/ingredient_item" />
+
+    </ScrollView>
+
+</LinearLayout>

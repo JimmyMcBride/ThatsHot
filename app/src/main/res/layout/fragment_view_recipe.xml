@@ -19,18 +19,9 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_go_home"
-                android:backgroundTint="@color/indigo_500"
-                android:textColor="@color/indigo_50"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/go_home" />
-
-            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_edit_recipe"
-                android:backgroundTint="@color/teal_500"
-                android:textColor="@color/teal_50"
+                android:backgroundTint="@color/amber_500"
+                android:textColor="@color/amber_50"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -41,6 +32,7 @@
             android:id="@+id/tv_recipe_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/gray_50"
             android:gravity="center"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -50,6 +42,7 @@
             android:id="@+id/tv_recipe_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/gray_50"
             android:gravity="center"
             android:textSize="16sp"
             android:textStyle="bold"
