@@ -8,19 +8,22 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.thatshot.view.HomeFragment"
-        android:label="fragment_home"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/goToViewRecipeFragment"
-            app:destination="@id/viewRecipeFragment" />
+<!--        <action-->
+<!--            android:id="@+id/goToViewRecipeFragment"-->
+<!--            app:destination="@id/viewRecipeFragment" />-->
         <action
             android:id="@+id/goToAddRecipeFragment"
             app:destination="@id/addRecipeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_viewRecipeFragment"
+            app:destination="@id/viewRecipeFragment" />
     </fragment>
     <fragment
         android:id="@+id/addRecipeFragment"
         android:name="com.example.thatshot.view.AddRecipeFragment"
-        android:label="fragment_add_recipe"
+        android:label="@string/add_recipe"
         tools:layout="@layout/fragment_add_recipe">
         <action
             android:id="@+id/goToHomeFragment"
@@ -29,9 +32,9 @@
     <fragment
         android:id="@+id/viewRecipeFragment"
         android:name="com.example.thatshot.view.ViewRecipeFragment"
-        android:label="fragment_view_recipe"
+        android:label="View Recipe"
         tools:layout="@layout/fragment_view_recipe">
-        <action
+       <action
             android:id="@+id/goToEditRecipeFragment"
             app:destination="@id/editRecipeFragment" />
         <action
@@ -44,7 +47,7 @@
     <fragment
         android:id="@+id/editRecipeFragment"
         android:name="com.example.thatshot.view.EditRecipeFragment"
-        android:label="fragment_edit_recipe"
+        android:label="Edit Recipe"
         tools:layout="@layout/fragment_edit_recipe">
         <action
             android:id="@+id/goToHomeFragment"

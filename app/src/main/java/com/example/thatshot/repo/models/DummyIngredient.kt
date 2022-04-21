@@ -5,6 +5,6 @@ import java.io.Serializable
 data class DummyIngredient(
     val id: Int,
     val name: String,
-    val amount: Double,
     val unit: String,
+    val amount: String,
 ) : Serializable
