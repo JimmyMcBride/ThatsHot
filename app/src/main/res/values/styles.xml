@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ParentLayoutStyle">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+    </style>
+
+    <style name="NavButtonRound">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">30%</item>
+    </style>
+</resources>
