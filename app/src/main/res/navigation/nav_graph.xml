@@ -21,11 +21,7 @@
         android:id="@+id/addRecipeFragment"
         android:name="com.example.thatshot.view.AddRecipeFragment"
         android:label="@string/add_recipe"
-        tools:layout="@layout/fragment_add_recipe">
-        <action
-            android:id="@+id/goToHomeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_add_recipe"/>
     <fragment
         android:id="@+id/viewRecipeFragment"
         android:name="com.example.thatshot.view.ViewRecipeFragment"
@@ -34,12 +30,9 @@
         <action
             android:id="@+id/goToEditRecipeFragment"
             app:destination="@id/editRecipeFragment" />
-        <action
-            android:id="@+id/goToHomeFragment"
-            app:destination="@id/homeFragment" />
         <argument
             android:name="recipe"
-            app:argType="com.example.thatshot.repo.models.DummyRecipe" />
+            app:argType="com.example.thatshot.repo.models.Recipe" />
     </fragment>
     <fragment
         android:id="@+id/editRecipeFragment"
@@ -51,7 +44,7 @@
             app:destination="@id/homeFragment" />
         <argument
             android:name="recipe"
-            app:argType="com.example.thatshot.repo.models.DummyRecipe" />
+            app:argType="com.example.thatshot.repo.models.Recipe" />
     </fragment>
 
 </navigation>
