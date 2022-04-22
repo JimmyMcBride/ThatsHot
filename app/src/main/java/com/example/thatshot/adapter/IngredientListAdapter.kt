@@ -28,9 +28,11 @@ class IngredientListAdapter(
 
         fun loadIngredient(ingredient: Ingredient, editable: Boolean) = with(binding) {
             tvIngredient.text = "${ingredient.amount} ${ingredient.unit} of ${ingredient.name}"
+
             var amount: String = ingredient.amount.toString()
             var unit: String = ingredient.unit
             var name: String = ingredient.name
+
             if (editable) {
                 btnEditRecipeName.isVisible = true
                 btnEditRecipeName.setOnClickListener {
@@ -40,6 +42,7 @@ class IngredientListAdapter(
                     llEditIngredient.isVisible = true
                     llIngredientView.isVisible = false
                 }
+
                 btnSaveIngredient.setOnClickListener {
                     amount = itIngredientAmount.text.toString()
                     unit = itIngredientUnit.text.toString()
@@ -48,6 +51,7 @@ class IngredientListAdapter(
                     llEditIngredient.isVisible = false
                     llIngredientView.isVisible = true
                 }
+
                 btnCancel.setOnClickListener {
                     amount = itIngredientAmount.text.toString()
                     unit = itIngredientUnit.text.toString()

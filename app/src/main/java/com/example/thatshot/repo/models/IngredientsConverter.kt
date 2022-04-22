@@ -6,22 +6,22 @@ import com.google.gson.reflect.TypeToken
 
 class IngredientConverter {
     @TypeConverter
-    fun fromCountryLangList(countryLang: List<Ingredient?>?): String? {
-        if (countryLang == null) {
+    fun fromStringToList(listOfIngredients: List<Ingredient?>?): String? {
+        if (listOfIngredients == null) {
             return null
         }
         val gson = Gson()
         val type = object : TypeToken<List<Ingredient?>?>() {}.type
-        return gson.toJson(countryLang, type)
+        return gson.toJson(listOfIngredients, type)
     }
 
     @TypeConverter
-    fun toCountryLangList(countryLangString: String?): List<Ingredient?>? {
-        if (countryLangString == null) {
+    fun fromListToString(listOfIngredients: String?): List<Ingredient?>? {
+        if (listOfIngredients == null) {
             return null
         }
         val gson = Gson()
         val type = object : TypeToken<List<Ingredient?>?>() {}.type
-        return gson.fromJson(countryLangString, type)
+        return gson.fromJson(listOfIngredients, type)
     }
 }

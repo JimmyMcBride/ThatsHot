@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.thatshot.R
 import com.example.thatshot.adapter.RecipeListAdapter
 import com.example.thatshot.databinding.FragmentHomeBinding
@@ -20,6 +21,7 @@ import com.example.thatshot.viewmodel.RecipeListViewModel
 import com.example.thatshot.viewmodel.RecipeListViewmodelFactory
 
 class HomeFragment : Fragment() {
+
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -49,9 +51,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun initViews() = with(binding) {
+
         btnAddRecipe.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.goToAddRecipeFragment())
         }
+
         btnClearRepo.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle("Clear Recipes")
@@ -65,6 +69,7 @@ class HomeFragment : Fragment() {
                 .setIcon(R.drawable.ic_warning)
                 .show()
         }
+
         viewModel.state.observe(viewLifecycleOwner) {
             when(it){
                 is StateResource.Error -> {
@@ -85,6 +90,7 @@ class HomeFragment : Fragment() {
                 }
             }
         }
+
         viewModel.fetchRecipes()
     }
 

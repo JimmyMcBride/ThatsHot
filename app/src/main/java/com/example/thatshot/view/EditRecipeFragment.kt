@@ -19,12 +19,16 @@ import com.example.thatshot.viewmodel.RecipeListViewModel
 import com.example.thatshot.viewmodel.RecipeListViewmodelFactory
 
 class EditRecipeFragment : Fragment() {
+
     private var _binding: FragmentEditRecipeBinding? = null
     private val binding get() = _binding!!
+
     private val args by navArgs<EditRecipeFragmentArgs>()
+
     private val repo by lazy {
         ThatsHotRepoImplementation(requireContext())
     }
+
     private val viewModel by lazy {
         ViewModelProvider(this, RecipeListViewmodelFactory(repo))[RecipeListViewModel::class.java]
     }
@@ -71,6 +75,7 @@ class EditRecipeFragment : Fragment() {
         }
 
         viewModel.fetchByID(args.recipeID)
+
         btnSaveRecipe.setOnClickListener {
             val newRecipe = Recipe (
                 id = args.recipeID,
@@ -79,34 +84,40 @@ class EditRecipeFragment : Fragment() {
                 ingredients = adapter.ingredients)
             viewModel.update(newRecipe)
 
-            //TODO: OBSERVE THIS????
             findNavController().navigateUp()
         }
+
         btnGoBack.setOnClickListener {
             findNavController().navigateUp()
         }
+
         btnEditRecipeName.setOnClickListener {
             llEditRecipeName.isVisible = true
             llViewRecipeName.isVisible = false
         }
+
         btnEditRecipeDescription.setOnClickListener {
             llEditRecipeDescription.isVisible = true
             llViewRecipeDescription.isVisible = false
         }
+
         btnSaveRecipeName.setOnClickListener {
             llEditRecipeName.isVisible = false
             llViewRecipeName.isVisible = true
             tvRecipeName.text = itRecipeName.text
         }
+
         btnSaveRecipeDescription.setOnClickListener {
             llEditRecipeDescription.isVisible = false
             llViewRecipeDescription.isVisible = true
             tvRecipeDescription.text = itRecipeDescription.text
         }
+
         btnCancelRecipeName.setOnClickListener {
             llEditRecipeName.isVisible = false
             llViewRecipeName.isVisible = true
         }
+
         btnCancelRecipeDescription.setOnClickListener {
             llEditRecipeDescription.isVisible = false
             llViewRecipeDescription.isVisible = true

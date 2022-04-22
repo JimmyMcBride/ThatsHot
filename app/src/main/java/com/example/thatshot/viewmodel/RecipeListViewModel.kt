@@ -11,12 +11,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class RecipeListViewModel(private val repo: ThatsHotRepoImplementation): ViewModel() {
+
     private var _state: MutableLiveData<StateResource<MutableList<Recipe>>> = MutableLiveData(StateResource.Standby())
     val state: LiveData<StateResource<MutableList<Recipe>>> get() = _state
 
     private fun setLoading() {
         _state.value = StateResource.Loading()
     }
+
     fun setStandby() {
         _state.value = StateResource.Standby()
     }

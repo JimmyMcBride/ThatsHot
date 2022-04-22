@@ -9,6 +9,7 @@ import com.example.thatshot.R
 import com.example.thatshot.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private lateinit var navController: NavController
 

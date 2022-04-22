@@ -17,12 +17,16 @@ import com.example.thatshot.viewmodel.RecipeListViewModel
 import com.example.thatshot.viewmodel.RecipeListViewmodelFactory
 
 class ViewRecipeFragment : Fragment() {
+
     private var _binding: FragmentViewRecipeBinding? = null
     private val binding get() = _binding!!
+
     private val args by navArgs<ViewRecipeFragmentArgs>()
+
     private val repo by lazy {
         ThatsHotRepoImplementation(requireContext())
     }
+
     private val viewModel by lazy {
         ViewModelProvider(this, RecipeListViewmodelFactory(repo))[RecipeListViewModel::class.java]
     }
@@ -50,12 +54,15 @@ class ViewRecipeFragment : Fragment() {
                     Log.d("VIEW_FRAGMENT", it.err.toString())
                     viewModel.setStandby()
                 }
+
                 is StateResource.Loading -> {
                     disableButtons()
                 }
+
                 is StateResource.Standby -> {
                     enableButtons()
                 }
+
                 is StateResource.Success -> {
                     tvRecipeName.text = it.data[0].name
                     tvRecipeDescription.text = it.data[0].description
@@ -72,7 +79,6 @@ class ViewRecipeFragment : Fragment() {
         btnDeleteRecipe.setOnClickListener {
             viewModel.deleteByID(args.recipeID)
 
-            //TODO: OBSERVE THIS???
             findNavController().navigateUp()
         }
 
