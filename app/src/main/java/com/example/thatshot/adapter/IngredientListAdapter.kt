@@ -48,7 +48,9 @@ class IngredientListAdapter(
         companion object {
             fun getInstance(parent: ViewGroup) = IngredientItemBinding.inflate(
                 parent.layoutInflater, parent, false
-            ).run { IngredientViewHolder(this) }
+            ).run {
+                IngredientViewHolder(this)
+            }
         }
     }
 }
