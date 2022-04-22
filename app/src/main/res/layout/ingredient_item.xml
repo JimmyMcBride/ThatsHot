@@ -31,9 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/edit" />
-
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/ll_edit_ingredient"
@@ -45,14 +43,16 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/it_ingredient_amount"
             android:hint="@string/amount"
+            android:textColor="@android:color/white"
             android:inputType="numberDecimal"
-            android:layout_weight="1"
+            android:layout_weight=".7"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/it_ingredient_unit"
             android:hint="@string/unit"
+            android:textColor="@android:color/white"
             android:layout_weight=".7"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
@@ -60,6 +60,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/it_ingredient_name"
             android:hint="@string/name"
+            android:textColor="@android:color/white"
             android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
@@ -83,7 +84,6 @@
             android:textColor="@color/red_50"
             android:padding="8dp"
             android:text="@string/x" />
-
     </LinearLayout>
 
 </LinearLayout>
