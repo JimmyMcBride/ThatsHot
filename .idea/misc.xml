@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/delete_forever.xml" value="0.1695" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.1695" />
+        <entry key="app/src/main/res/drawable/warning.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2391304347826087" />
         <entry key="app/src/main/res/layout/fragment_add_recipe.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_edit_recipe.xml" value="0.25" />

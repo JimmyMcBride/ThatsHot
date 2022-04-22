@@ -21,10 +21,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancel" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save_recipe"
+            android:backgroundTint="@color/red_600"
+            android:textColor="@color/red_50"
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save" />
 
     </LinearLayout>
-
-
 
     <LinearLayout
         android:id="@+id/ll_view_recipe_name"
@@ -150,11 +156,6 @@
 
     </LinearLayout>
 
-
-
-
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -167,6 +168,4 @@
             tools:listitem="@layout/ingredient_item" />
 
     </ScrollView>
-
-
 </LinearLayout>
