@@ -45,6 +45,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/it_ingredient_amount"
             android:hint="@string/amount"
+            android:textColorHint="@color/gray_50"
+            android:textColor="@color/gray_50"
             android:inputType="numberDecimal"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -53,6 +55,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/it_ingredient_unit"
             android:hint="@string/unit"
+            android:textColorHint="@color/gray_50"
+            android:textColor="@color/gray_50"
             android:layout_weight=".7"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
@@ -60,6 +64,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/it_ingredient_name"
             android:hint="@string/name"
+            android:textColorHint="@color/gray_50"
+            android:textColor="@color/gray_50"
             android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
