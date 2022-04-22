@@ -49,9 +49,6 @@ class IngredientListAdapter(
                     llIngredientView.isVisible = true
                 }
                 btnCancel.setOnClickListener {
-                    amount = itIngredientAmount.text.toString()
-                    unit = itIngredientUnit.text.toString()
-                    name = itIngredientName.text.toString()
                     tvIngredient.text = "${amount} ${unit} of ${name}"
                     llEditIngredient.isVisible = false
                     llIngredientView.isVisible = true
