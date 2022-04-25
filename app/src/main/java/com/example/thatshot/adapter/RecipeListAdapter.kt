@@ -1,5 +1,6 @@
 package com.example.thatshot.adapter
 
+import android.util.Log
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.thatshot.databinding.RecipeCardBinding
@@ -10,6 +11,8 @@ class RecipeListAdapter(
     private val recipes: List<DummyRecipe>,
     private val selectedRecipe: (DummyRecipe) -> Unit
 ) : RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder>() {
+
+    lateinit var recipeData: List<DummyRecipe>
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
@@ -22,6 +25,10 @@ class RecipeListAdapter(
     }
 
     override fun getItemCount() = recipes.size
+
+    fun applyRecipeData(recipes: List<DummyRecipe>) {
+        recipeData = recipes
+    }
 
     class RecipeViewHolder(
         private val binding: RecipeCardBinding
