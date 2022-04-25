@@ -1,14 +1,14 @@
-package com.example.thatshot.adapter
+package com.example.thatshot.views.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.thatshot.databinding.RecipeCardBinding
 import com.example.thatshot.extensions.layoutInflater
-import com.example.thatshot.repo.models.DummyRecipe
+import com.example.thatshot.model.models.Recipe
 
 class RecipeListAdapter(
-    private val recipes: List<DummyRecipe>,
-    private val selectedRecipe: (DummyRecipe) -> Unit
+    private val recipes: List<Recipe>,
+    private val selectedRecipe: (Recipe) -> Unit
 ) : RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -27,7 +27,7 @@ class RecipeListAdapter(
         private val binding: RecipeCardBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun loadRecipes(recipe: DummyRecipe) = with(binding) {
+        fun loadRecipes(recipe: Recipe) = with(binding) {
             tvRecipeName.text = recipe.name
             tvRecipeDescription.text = recipe.description
         }

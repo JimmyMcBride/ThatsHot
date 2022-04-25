@@ -1,4 +1,4 @@
-package com.example.thatshot.view
+package com.example.thatshot.views
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,17 +6,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.thatshot.adapter.IngredientListAdapter
+import com.example.thatshot.views.adapter.IngredientListAdapter
 import com.example.thatshot.databinding.FragmentEditRecipeBinding
+import com.example.thatshot.model.repo.RepoImpl
+import com.example.thatshot.viewmodels.AddRecipeViewModel
+import com.example.thatshot.viewmodels.EditRecipeViewModel
+import com.example.thatshot.viewmodels.factories.ViewModelFactoryAddRecipe
+import com.example.thatshot.viewmodels.factories.ViewModelFactoryEditRecipe
 
 class EditRecipeFragment : Fragment() {
     private var _binding: FragmentEditRecipeBinding? = null
     private val binding get() = _binding!!
     private val args by navArgs<EditRecipeFragmentArgs>()
-//    private val viewModel by viewModel<>()
-
+    private val recipeId by lazy {
+        args.recipe.id
+    }
+    private val repo by lazy {
+        RepoImpl(requireContext())
+    }
+    val viewModel by viewModels<EditRecipeViewModel> {
+        ViewModelFactoryEditRecipe(repo)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ) = FragmentEditRecipeBinding.inflate(
@@ -34,7 +47,7 @@ class EditRecipeFragment : Fragment() {
     }
 
     private fun initViews() = with(binding) {
-        rvIngredients.adapter = IngredientListAdapter(args.recipe.ingredients, true)
+//        rvIngredients.adapter = IngredientListAdapter(args.recipe.ingredients, true)
         tvRecipeName.text = args.recipe.name
         tvRecipeDescription.text = args.recipe.description
         btnGoBack.setOnClickListener {
@@ -49,10 +62,16 @@ class EditRecipeFragment : Fragment() {
             llViewRecipeDescription.isVisible = false
         }
         btnSaveRecipeName.setOnClickListener {
+            val newName = binding.itRecipeName.text.toString()
+            viewModel.updateRecipeName(recipeId, newName)
+            tvRecipeName.text = newName
             llEditRecipeName.isVisible = false
             llViewRecipeName.isVisible = true
         }
         btnSaveRecipeDescription.setOnClickListener {
+            val newDescription = binding.itRecipeDescription.text.toString()
+            viewModel.updateRecipeDescription(recipeId, newDescription)
+            tvRecipeDescription.text = newDescription
             llEditRecipeDescription.isVisible = false
             llViewRecipeDescription.isVisible = true
         }

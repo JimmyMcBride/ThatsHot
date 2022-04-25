@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:label="@string/add_recipe"
-    tools:context=".view.AddRecipeFragment">
+    tools:context=".views.AddRecipeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,16 +49,17 @@
         android:text="@string/ingredients"
         android:textAlignment="center" />
 
-    <!--        <com.google.android.material.textview.MaterialTextView-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:textAlignment="center"-->
-    <!--            android:text="@string/add_some_ingredients" />-->
+<!--            <com.google.android.material.textview.MaterialTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textAlignment="center"-->
+<!--                android:text="@string/add_some_ingredients" />-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/it_ingredient_amount"
@@ -97,7 +99,6 @@
             android:text="@string/add"
             android:textColor="@color/teal_50" />
 
-    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
