@@ -1,10 +1,12 @@
 package com.example.thatshot.repo.models
 
+import androidx.room.PrimaryKey
 import java.io.Serializable
 
 data class DummyIngredient(
-    val id: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
     val name: String,
     val amount: Double,
-    val unit: String,
+    val unit: String
 ) : Serializable

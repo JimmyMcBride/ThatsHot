@@ -35,7 +35,7 @@ class ViewRecipeFragment : Fragment() {
     private fun initViews() = with(binding) {
         tvRecipeName.text = args.recipe.name
         tvRecipeDescription.text = args.recipe.description
-        rvIngredients.adapter = IngredientListAdapter(args.recipe.ingredients, false)
+//        rvIngredients.adapter = IngredientListAdapter(args.recipe.ingredients, false)
         btnEditRecipe.setOnClickListener {
             findNavController().navigate(ViewRecipeFragmentDirections.goToEditRecipeFragment(args.recipe))
         }
