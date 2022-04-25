@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:label="@string/app_name"
-    tools:context=".view.HomeFragment">
+    tools:context=".views.HomeFragment">
 
     <TextView
         android:id="@+id/tv_sub_title"
