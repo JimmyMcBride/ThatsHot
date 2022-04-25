@@ -15,7 +15,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-//    private val viewModel by viewModel<>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
         }
         rvRecipes.adapter = context?.data?.let {
             RecipeListAdapter(
-                it, ::recipeSelected
+                listOf(it), ::recipeSelected
             )
         }
     }
