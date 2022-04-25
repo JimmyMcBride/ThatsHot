@@ -26,6 +26,15 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="@string/edit" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_delete_recipe"
+                android:backgroundTint="@color/deep_orange_700"
+                android:textColor="@color/amber_50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/delete_recipe" />
         </LinearLayout>
 
         <com.google.android.material.textview.MaterialTextView

@@ -28,7 +28,7 @@ class RecipeListAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun loadRecipes(recipe: DummyRecipe) = with(binding) {
-            tvRecipeName.text = recipe.name
+            tvRecipeName.text = recipe.recipe
             tvRecipeDescription.text = recipe.description
         }
 
