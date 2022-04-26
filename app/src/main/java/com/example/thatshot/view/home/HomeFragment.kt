@@ -13,16 +13,19 @@ import com.example.thatshot.R
 import com.example.thatshot.adapter.RecipeListAdapter
 import com.example.thatshot.databinding.FragmentHomeBinding
 import com.example.thatshot.domain.model.Recipe
+import com.example.thatshot.domain.use_cases.UseCases
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HomeFragment @Inject constructor(
-//    private var viewModelFactory: ViewModelProvider.Factory
-) : Fragment() {
+@AndroidEntryPoint
+class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-//    private val viewModel by viewModels<HomeViewModel> { viewModelFactory }
+
+    private val viewModel by viewModels<HomeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -42,15 +45,18 @@ class HomeFragment @Inject constructor(
     }
 
     private fun initViews() = with(binding) {
-        lifecycleScope.launch {
-//            viewModel.getRecipes()
+        lifecycleScope.launch(Dispatchers.Main) {
+            viewModel.getRecipes()
         }
         btnAddRecipe.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.goToAddRecipeFragment())
         }
-//        rvRecipes.adapter = RecipeListAdapter(
-//            viewModel.recipes.value, ::recipeSelected
-//        )
+        viewModel.recipes.observe(viewLifecycleOwner) { recipes ->
+            rvRecipes.adapter = RecipeListAdapter(
+                recipes, ::recipeSelected
+            )
+        }
+
     }
 
     private fun recipeSelected(recipe: Recipe) = with(findNavController()) {

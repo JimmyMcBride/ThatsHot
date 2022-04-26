@@ -19,20 +19,20 @@ val Context.data by lazy {
             1,
             "Hot Dog",
             "Perfect for ball games",
-            mutableListOf(
-                Ingredient(1, "Hot dog", 1.0, "unit"),
-                Ingredient(2, "Hot dog bun", 1.0, "unit"),
-            )
+//            mutableListOf(
+//                Ingredient(1, "Hot dog", 1.0, "unit"),
+//                Ingredient(2, "Hot dog bun", 1.0, "unit"),
+//            )
         ),
         Recipe(
             2,
             "Hamburger",
             "Perfect for anytime",
-            mutableListOf(
-                Ingredient(3, "Burger patty", 1.0, "unit"),
-                Ingredient(4, "Burger bun", 1.0, "unit"),
-                Ingredient(5, "Lettuce", 1.0, "slice"),
-            )
+//            mutableListOf(
+//                Ingredient(3, "Burger patty", 1.0, "unit"),
+//                Ingredient(4, "Burger bun", 1.0, "unit"),
+//                Ingredient(5, "Lettuce", 1.0, "slice"),
+//            )
         )
     )
 }

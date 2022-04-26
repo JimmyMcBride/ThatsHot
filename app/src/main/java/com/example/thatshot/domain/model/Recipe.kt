@@ -11,7 +11,7 @@ data class Recipe(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
     val description: String,
-    val ingredients: List<Ingredient>,
+//    val ingredients: List<Ingredient>,
 ) : Parcelable
 
 

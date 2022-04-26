@@ -34,7 +34,7 @@ class EditRecipeFragment : Fragment() {
     }
 
     private fun initViews() = with(binding) {
-        rvIngredients.adapter = IngredientListAdapter(args.recipe.ingredients, true)
+//        rvIngredients.adapter = IngredientListAdapter(args.recipe.ingredients, true)
         tvRecipeName.text = args.recipe.name
         tvRecipeDescription.text = args.recipe.description
         btnGoBack.setOnClickListener {
