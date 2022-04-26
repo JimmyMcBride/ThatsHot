@@ -1,4 +1,4 @@
-package com.example.thatshot.view
+package com.example.thatshot.view.view_recipe
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

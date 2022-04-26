@@ -2,43 +2,42 @@ package com.example.thatshot.view
 
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.thatshot.R
 import com.example.thatshot.databinding.ActivityMainBinding
-import com.example.thatshot.repo.models.DummyIngredient
-import com.example.thatshot.repo.models.DummyRecipe
+import com.example.thatshot.domain.model.Ingredient
+import com.example.thatshot.domain.model.Recipe
+import dagger.hilt.android.AndroidEntryPoint
 
 
 val Context.data by lazy {
     mutableListOf(
-        DummyRecipe(
+        Recipe(
             1,
             "Hot Dog",
             "Perfect for ball games",
             mutableListOf(
-                DummyIngredient(1, "Hot dog", 1.0, "unit"),
-                DummyIngredient(2, "Hot dog bun", 1.0, "unit"),
+                Ingredient(1, "Hot dog", 1.0, "unit"),
+                Ingredient(2, "Hot dog bun", 1.0, "unit"),
             )
         ),
-        DummyRecipe(
+        Recipe(
             2,
             "Hamburger",
             "Perfect for anytime",
             mutableListOf(
-                DummyIngredient(3, "Burger patty", 1.0, "unit"),
-                DummyIngredient(4, "Burger bun", 1.0, "unit"),
-                DummyIngredient(5, "Lettuce", 1.0, "slice"),
+                Ingredient(3, "Burger patty", 1.0, "unit"),
+                Ingredient(4, "Burger bun", 1.0, "unit"),
+                Ingredient(5, "Lettuce", 1.0, "slice"),
             )
         )
     )
 }
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }

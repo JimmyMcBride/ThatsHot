@@ -1,20 +1,14 @@
-package com.example.thatshot.view
+package com.example.thatshot.view.add_recipe
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.thatshot.R
 import com.example.thatshot.adapter.IngredientListAdapter
-import com.example.thatshot.databinding.ActivityMainBinding
 import com.example.thatshot.databinding.FragmentAddRecipeBinding
-import com.example.thatshot.repo.models.DummyIngredient
+import com.example.thatshot.domain.model.Ingredient
 
 
 class AddRecipeFragment : Fragment() {
@@ -22,7 +16,7 @@ class AddRecipeFragment : Fragment() {
     private val binding get() = _binding!!
 //    private val viewModel by viewModel<>()
 
-    private var ingredients = mutableListOf<DummyIngredient>()
+    private var ingredients = mutableListOf<Ingredient>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -32,40 +26,10 @@ class AddRecipeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setHasOptionsMenu(true) //Set this to true in order to trigger callbacks to Fragment#onOptionsItemSelected
-
-//        (requireActivity() as AppCompatActivity).apply {
-//            // Redirect system "Back" press to our dispatcher
-//            onBackPressedDispatcher.addCallback(viewLifecycleOwner, backPressedDispatcher)
-//
-//            // Set toolbar if it is in Fragment's layout. If you have a global toolbar that lives in Activity layout, then you don't need this line.
-//            setSupportActionBar(ActivityMainBinding.toolbar)
-//
-//            // Setup action bar to work with NavController
-//            setupActionBarWithNavController(findNavController())
-//        }
-
-
         initViews()
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return if (item.itemId == android.R.id.home) {
-//            // Redirect "Up/Home" button clicks to our own function
-//            this@AddRecipeFragment.onBackPressed()
-//            true
-//        } else {
-//            super.onOptionsItemSelected(item)
-//        }
-//    }
-//
-//    private fun onBackPressed() {
-//        // Work your magic! Show dialog etc.
-//    }
-
     override fun onDestroyView() {
-//        backPressedDispatcher.remove()
         super.onDestroyView()
         _binding = null
     }
@@ -77,7 +41,7 @@ class AddRecipeFragment : Fragment() {
         }
         btnAddIngredient.setOnClickListener {
             ingredients.add(
-                DummyIngredient(
+                Ingredient(
                     1,
                     itIngredientName.text.toString(),
                     itIngredientAmount.text.toString().toDouble(),

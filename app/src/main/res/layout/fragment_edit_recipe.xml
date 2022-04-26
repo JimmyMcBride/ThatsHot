@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.EditRecipeFragment">
+    tools:context=".view.edit_recipe.EditRecipeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
