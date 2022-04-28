@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.thatshot.adapter.IngredientListAdapter
 import com.example.thatshot.databinding.FragmentAddRecipeBinding
-import com.example.thatshot.domain.model.Ingredient
+import com.fireninja.lib_recipes.domain.model.Ingredient
 
 
 class AddRecipeFragment : Fragment() {
@@ -16,7 +16,7 @@ class AddRecipeFragment : Fragment() {
     private val binding get() = _binding!!
 //    private val viewModel by viewModel<>()
 
-    private var ingredients = mutableListOf<Ingredient>()
+    private var ingredients = mutableListOf<com.fireninja.lib_recipes.domain.model.Ingredient>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -41,7 +41,7 @@ class AddRecipeFragment : Fragment() {
         }
         btnAddIngredient.setOnClickListener {
             ingredients.add(
-                Ingredient(
+                com.fireninja.lib_recipes.domain.model.Ingredient(
                     1,
                     itIngredientName.text.toString(),
                     itIngredientAmount.text.toString().toDouble(),

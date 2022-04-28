@@ -6,18 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.thatshot.R
 import com.example.thatshot.adapter.RecipeListAdapter
 import com.example.thatshot.databinding.FragmentHomeBinding
-import com.example.thatshot.domain.model.Recipe
-import com.example.thatshot.domain.use_cases.UseCases
+import com.fireninja.lib_recipes.domain.model.Recipe
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -59,7 +56,7 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun recipeSelected(recipe: Recipe) = with(findNavController()) {
+    private fun recipeSelected(recipe: com.fireninja.lib_recipes.domain.model.Recipe) = with(findNavController()) {
         navigate(HomeFragmentDirections.goToViewRecipeFragment(recipe))
     }
 }

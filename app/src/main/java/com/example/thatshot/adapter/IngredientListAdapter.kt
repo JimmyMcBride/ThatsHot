@@ -5,10 +5,10 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.thatshot.databinding.IngredientItemBinding
 import com.example.thatshot.extensions.layoutInflater
-import com.example.thatshot.domain.model.Ingredient
+import com.fireninja.lib_recipes.domain.model.Ingredient
 
 class IngredientListAdapter(
-    private val ingredients: List<Ingredient>,
+    private val ingredients: List<com.fireninja.lib_recipes.domain.model.Ingredient>,
     private val editable: Boolean
 ) : RecyclerView.Adapter<IngredientListAdapter.IngredientViewHolder>() {
 
@@ -26,7 +26,7 @@ class IngredientListAdapter(
         private val binding: IngredientItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun loadIngredient(ingredient: Ingredient, editable: Boolean) = with(binding) {
+        fun loadIngredient(ingredient: com.fireninja.lib_recipes.domain.model.Ingredient, editable: Boolean) = with(binding) {
             tvIngredient.text = "${ingredient.amount} ${ingredient.unit} of ${ingredient.name}"
             if (editable) {
                 btnEditRecipeName.isVisible = true

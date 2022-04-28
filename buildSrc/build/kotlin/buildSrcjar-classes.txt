@@ -1,0 +1,1 @@
+/home/fireninja/AndroidStudioProjects/ThatsHot/buildSrc/build/classes/kotlin/main/Dependencies.class

@@ -8,14 +8,13 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.thatshot.R
 import com.example.thatshot.databinding.ActivityMainBinding
-import com.example.thatshot.domain.model.Ingredient
-import com.example.thatshot.domain.model.Recipe
+import com.fireninja.lib_recipes.domain.model.Recipe
 import dagger.hilt.android.AndroidEntryPoint
 
 
 val Context.data by lazy {
     mutableListOf(
-        Recipe(
+        com.fireninja.lib_recipes.domain.model.Recipe(
             1,
             "Hot Dog",
             "Perfect for ball games",
@@ -24,7 +23,7 @@ val Context.data by lazy {
 //                Ingredient(2, "Hot dog bun", 1.0, "unit"),
 //            )
         ),
-        Recipe(
+        com.fireninja.lib_recipes.domain.model.Recipe(
             2,
             "Hamburger",
             "Perfect for anytime",
