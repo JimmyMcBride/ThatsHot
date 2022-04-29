@@ -4,11 +4,11 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.thatshot.databinding.IngredientItemBinding
+import com.example.thatshot.domain.models.Ingredient
 import com.example.thatshot.extensions.layoutInflater
-import com.example.thatshot.repo.models.DummyIngredient
 
 class IngredientListAdapter(
-    private val ingredients: List<DummyIngredient>,
+    private val ingredients: List<Ingredient>,
     private val editable: Boolean
 ) : RecyclerView.Adapter<IngredientListAdapter.IngredientViewHolder>() {
 
@@ -26,7 +26,7 @@ class IngredientListAdapter(
         private val binding: IngredientItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun loadIngredient(ingredient: DummyIngredient, editable: Boolean) = with(binding) {
+        fun loadIngredient(ingredient: Ingredient, editable: Boolean) = with(binding) {
             tvIngredient.text = "${ingredient.amount} ${ingredient.unit} of ${ingredient.name}"
             if (editable) {
                 btnEditRecipeName.isVisible = true

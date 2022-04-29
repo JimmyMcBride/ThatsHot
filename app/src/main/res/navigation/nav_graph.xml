@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.thatshot.view.HomeFragment"
+        android:name="com.example.thatshot.view.frags.HomeFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/goToViewRecipeFragment"
-            app:destination="@id/viewRecipeFragment" />
-        <action
-            android:id="@+id/goToAddRecipeFragment"
+            android:id="@+id/action_homeFragment_to_addRecipeFragment"
             app:destination="@id/addRecipeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_viewRecipeFragment"
+            app:destination="@id/viewRecipeFragment" />
     </fragment>
     <fragment
         android:id="@+id/addRecipeFragment"
-        android:name="com.example.thatshot.view.AddRecipeFragment"
+        android:name="com.example.thatshot.view.frags.AddRecipeFragment"
         android:label="@string/add_recipe"
         tools:layout="@layout/fragment_add_recipe">
         <action
@@ -31,22 +31,22 @@
     </fragment>
     <fragment
         android:id="@+id/viewRecipeFragment"
-        android:name="com.example.thatshot.view.ViewRecipeFragment"
+        android:name="com.example.thatshot.view.frags.ViewRecipeFragment"
         android:label="View Recipe"
         tools:layout="@layout/fragment_view_recipe">
-        <action
-            android:id="@+id/goToEditRecipeFragment"
-            app:destination="@id/editRecipeFragment" />
         <action
             android:id="@+id/goToHomeFragment"
             app:destination="@id/homeFragment" />
         <argument
             android:name="recipe"
-            app:argType="com.example.thatshot.repo.models.DummyRecipe" />
+            app:argType="com.example.thatshot.domain.models.Recipe" />
+        <action
+            android:id="@+id/action_viewRecipeFragment_to_editRecipeFragment"
+            app:destination="@id/editRecipeFragment" />
     </fragment>
     <fragment
         android:id="@+id/editRecipeFragment"
-        android:name="com.example.thatshot.view.EditRecipeFragment"
+        android:name="com.example.thatshot.view.frags.EditRecipeFragment"
         android:label="Edit Recipe"
         tools:layout="@layout/fragment_edit_recipe">
         <action
@@ -54,7 +54,7 @@
             app:destination="@id/homeFragment" />
         <argument
             android:name="recipe"
-            app:argType="com.example.thatshot.repo.models.DummyRecipe" />
+            app:argType="com.example.thatshot.domain.models.Recipe" />
     </fragment>
 
 </navigation>
