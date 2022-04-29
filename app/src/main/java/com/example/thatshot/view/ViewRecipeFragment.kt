@@ -12,9 +12,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.thatshot.adapter.IngredientListAdapter
 import com.example.thatshot.databinding.FragmentViewRecipeBinding
-import com.example.thatshot.repo.RepoImpl
-import com.example.thatshot.repo.models.DummyIngredient
-import com.example.thatshot.util.Resource
+import com.example.lib_recipes.repo.RepoImpl
+import com.example.lib_recipes.repo.models.DummyIngredient
+import com.example.lib_recipes.util.Resource
 import com.example.thatshot.viewholder.AddRecipeViewModel
 import com.example.thatshot.viewholder.ViewRecipeViewModel
 import com.example.thatshot.viewholder.factory.ViewModelFactoryAddRecipe
@@ -25,14 +25,14 @@ class ViewRecipeFragment : Fragment() {
     private val binding get() = _binding!!
 
     val repoImp by lazy {
-        RepoImpl(requireContext())
+        com.example.lib_recipes.repo.RepoImpl(requireContext())
     }
 
     private val viewModel by viewModels<ViewRecipeViewModel>() {
         ViewModelFactoryViewRecipe(repoImp)
     }
 
-    private var ingredients = listOf<DummyIngredient>()
+    private var ingredients = listOf<com.example.lib_recipes.repo.models.DummyIngredient>()
 
     private val args by navArgs<ViewRecipeFragmentArgs>()
 
@@ -67,14 +67,14 @@ class ViewRecipeFragment : Fragment() {
 
         viewModel.allIngredients.observe(viewLifecycleOwner) { ingredientViewState ->
             when (ingredientViewState) {
-                is Resource.Error -> {
+                is com.example.lib_recipes.util.Resource.Error -> {
                     Toast.makeText(context, ingredientViewState.message, Toast.LENGTH_SHORT).show()
                 }
-                is Resource.Success -> {
+                is com.example.lib_recipes.util.Resource.Success -> {
                     ingredients = ingredientViewState.data
                     rvIngredients.adapter = IngredientListAdapter(ingredients, false)
                 }
-                is Resource.Loading -> {}
+                is com.example.lib_recipes.util.Resource.Loading -> {}
                 else -> {}
             }
         }

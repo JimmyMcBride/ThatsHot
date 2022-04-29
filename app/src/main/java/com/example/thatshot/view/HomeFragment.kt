@@ -12,9 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.thatshot.R
 import com.example.thatshot.adapter.RecipeListAdapter
 import com.example.thatshot.databinding.FragmentHomeBinding
-import com.example.thatshot.repo.RepoImpl
-import com.example.thatshot.repo.models.DummyRecipe
-import com.example.thatshot.util.Resource
+import com.example.lib_recipes.repo.RepoImpl
+import com.example.lib_recipes.repo.models.DummyRecipe
+import com.example.lib_recipes.util.Resource
 import com.example.thatshot.viewholder.AddRecipeViewModel
 import com.example.thatshot.viewholder.HomeViewModel
 import com.example.thatshot.viewholder.factory.ViewModelFactoryHome
@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val repoImp by lazy {
-        RepoImpl(requireContext())
+        com.example.lib_recipes.repo.RepoImpl(requireContext())
     }
 
     private val viewModel by viewModels<HomeViewModel>() {

@@ -18,10 +18,10 @@ import com.example.thatshot.R
 import com.example.thatshot.adapter.IngredientListAdapter
 import com.example.thatshot.databinding.ActivityMainBinding
 import com.example.thatshot.databinding.FragmentAddRecipeBinding
-import com.example.thatshot.repo.RepoImpl
-import com.example.thatshot.repo.models.DummyIngredient
-import com.example.thatshot.repo.models.DummyRecipe
-import com.example.thatshot.util.Resource
+import com.example.lib_recipes.repo.RepoImpl
+import com.example.lib_recipes.repo.models.DummyIngredient
+import com.example.lib_recipes.repo.models.DummyRecipe
+import com.example.lib_recipes.util.Resource
 import com.example.thatshot.viewholder.AddRecipeViewModel
 import com.example.thatshot.viewholder.factory.ViewModelFactoryAddRecipe
 import kotlin.math.log
@@ -32,7 +32,7 @@ class AddRecipeFragment : Fragment() {
     private val binding get() = _binding!!
 
     val repoImp by lazy {
-        RepoImpl(requireContext())
+        com.example.lib_recipes.repo.RepoImpl(requireContext())
     }
 
     private val viewModel by viewModels<AddRecipeViewModel>() {
@@ -40,7 +40,7 @@ class AddRecipeFragment : Fragment() {
     }
 
     val args by navArgs<AddRecipeFragmentArgs>()
-    private var ingredients = mutableListOf<DummyIngredient>()
+    private var ingredients = mutableListOf<com.example.lib_recipes.repo.models.DummyIngredient>()
 
     private var ingredientId = 0
 
@@ -91,7 +91,7 @@ class AddRecipeFragment : Fragment() {
     }
 
     private fun initViews() = with(binding) {
-        var recipeList = listOf<DummyRecipe>()
+        var recipeList = listOf<com.example.lib_recipes.repo.models.DummyRecipe>()
         rvIngredients.adapter = IngredientListAdapter(ingredients, false)
 
 //        HERE IS ALL OF RECIPE LOGIC
@@ -111,7 +111,7 @@ class AddRecipeFragment : Fragment() {
             val isRecipeMade = recipeExists(recipeList)
             if (!isRecipeMade) {
                 viewModel.addRecipe(
-                    DummyRecipe(
+                    com.example.lib_recipes.repo.models.DummyRecipe(
                         recipeId = args.recipeId,
                         recipe = itRecipeName.text.toString(),
                         description = itRecipeDescription.text.toString()
@@ -119,7 +119,7 @@ class AddRecipeFragment : Fragment() {
                 )
                 ingredients.forEach{ ingredient ->
                 viewModel.addIngredient(
-                    DummyIngredient(
+                    com.example.lib_recipes.repo.models.DummyIngredient(
                         recipe = args.recipeId,
                         name = ingredient.name,
                         amount = ingredient.amount,
@@ -134,13 +134,13 @@ class AddRecipeFragment : Fragment() {
 
         viewModel.allRecipes.observe(viewLifecycleOwner) { recipeViewState ->
             when (recipeViewState) {
-                is Resource.Error -> {
+                is com.example.lib_recipes.util.Resource.Error -> {
                     Toast.makeText(context, recipeViewState.message, Toast.LENGTH_SHORT).show()
                 }
-                is Resource.Success -> {
+                is com.example.lib_recipes.util.Resource.Success -> {
                     recipeList = recipeViewState.data
                 }
-                is Resource.Loading -> {}
+                is com.example.lib_recipes.util.Resource.Loading -> {}
                 else -> {}
             }
 
@@ -166,7 +166,7 @@ class AddRecipeFragment : Fragment() {
 
         btnAddIngredient.setOnClickListener {
             ingredients.add(
-                DummyIngredient(
+                com.example.lib_recipes.repo.models.DummyIngredient(
                     id = ingredientId++,
                     recipe = args.recipeId,
                     name = itIngredientName.text.toString(),
@@ -197,7 +197,7 @@ class AddRecipeFragment : Fragment() {
         }
     }
 
-    fun recipeExists(recipes: List<DummyRecipe>): Boolean {
+    fun recipeExists(recipes: List<com.example.lib_recipes.repo.models.DummyRecipe>): Boolean {
         var flag = false
         recipes.forEach { recipe ->
             if (binding.itRecipeName.toString() == recipe.recipe) {

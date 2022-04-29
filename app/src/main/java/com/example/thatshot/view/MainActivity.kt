@@ -11,8 +11,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.thatshot.R
 import com.example.thatshot.databinding.ActivityMainBinding
-import com.example.thatshot.repo.models.DummyIngredient
-import com.example.thatshot.repo.models.DummyRecipe
+import com.example.lib_recipes.repo.models.DummyIngredient
+import com.example.lib_recipes.repo.models.DummyRecipe
 
 
 class MainActivity : AppCompatActivity() {

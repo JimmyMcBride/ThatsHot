@@ -4,14 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.thatshot.repo.RepoImpl
-import com.example.thatshot.repo.models.DummyIngredient
-import com.example.thatshot.repo.models.DummyRecipe
-import com.example.thatshot.util.Resource
+import com.example.lib_recipes.repo.RepoImpl
+import com.example.lib_recipes.repo.models.DummyIngredient
+import com.example.lib_recipes.repo.models.DummyRecipe
+import com.example.lib_recipes.util.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AddRecipeViewModel(val repo: RepoImpl): ViewModel() {
+class AddRecipeViewModel(val repo: com.example.lib_recipes.repo.RepoImpl): ViewModel() {
     var recipe: String = ""
     var description: String = ""
 
@@ -25,8 +25,9 @@ class AddRecipeViewModel(val repo: RepoImpl): ViewModel() {
     private var _saveIngredient: MutableLiveData<Boolean> = MutableLiveData(false)
     val saveIngredient: LiveData<Boolean> get() = _saveIngredient
 
-    private var _allRecipes: MutableLiveData<Resource<List<DummyRecipe>>> = MutableLiveData(Resource.Loading())
-    val allRecipes: LiveData<Resource<List<DummyRecipe>>> get() = _allRecipes
+    private var _allRecipes: MutableLiveData<com.example.lib_recipes.util.Resource<List<com.example.lib_recipes.repo.models.DummyRecipe>>> = MutableLiveData(
+        com.example.lib_recipes.util.Resource.Loading())
+    val allRecipes: LiveData<com.example.lib_recipes.util.Resource<List<com.example.lib_recipes.repo.models.DummyRecipe>>> get() = _allRecipes
 
     fun toggleSaveBtn(flag: Boolean){
         _saveBtn.value = flag
@@ -41,11 +42,11 @@ class AddRecipeViewModel(val repo: RepoImpl): ViewModel() {
         _allRecipes.value = response
     }
 
-    fun addRecipe(recipe: DummyRecipe) = viewModelScope.launch(Dispatchers.Main) {
+    fun addRecipe(recipe: com.example.lib_recipes.repo.models.DummyRecipe) = viewModelScope.launch(Dispatchers.Main) {
         repo.insertRecipe(recipe)
     }
 
-    fun addIngredient(ingredient: DummyIngredient) = viewModelScope.launch(Dispatchers.Main) {
+    fun addIngredient(ingredient: com.example.lib_recipes.repo.models.DummyIngredient) = viewModelScope.launch(Dispatchers.Main) {
         repo.insertIngredient(ingredient)
     }
 

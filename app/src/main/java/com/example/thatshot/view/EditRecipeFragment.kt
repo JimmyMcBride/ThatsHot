@@ -13,10 +13,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.thatshot.adapter.IngredientListAdapter
 import com.example.thatshot.databinding.FragmentEditRecipeBinding
-import com.example.thatshot.repo.RepoImpl
-import com.example.thatshot.repo.models.DummyIngredient
-import com.example.thatshot.repo.models.DummyRecipe
-import com.example.thatshot.util.Resource
+import com.example.lib_recipes.repo.RepoImpl
+import com.example.lib_recipes.repo.models.DummyIngredient
+import com.example.lib_recipes.repo.models.DummyRecipe
+import com.example.lib_recipes.util.Resource
 import com.example.thatshot.viewholder.AddRecipeViewModel
 import com.example.thatshot.viewholder.EditRecipeViewModel
 import com.example.thatshot.viewholder.factory.ViewModelFactoryAddRecipe
@@ -27,10 +27,10 @@ class EditRecipeFragment : Fragment() {
     private val binding get() = _binding!!
     private val args by navArgs<EditRecipeFragmentArgs>()
 
-    private var ingredients = listOf<DummyIngredient>()
+    private var ingredients = listOf<com.example.lib_recipes.repo.models.DummyIngredient>()
 
     private val repoImp by lazy {
-        RepoImpl(requireContext())
+        com.example.lib_recipes.repo.RepoImpl(requireContext())
     }
 
     private val viewModel by viewModels<EditRecipeViewModel>() {
@@ -58,14 +58,14 @@ class EditRecipeFragment : Fragment() {
     private fun initViews() = with(binding) {
         viewModel.allIngredients.observe(viewLifecycleOwner) { ingredientViewState ->
             when (ingredientViewState) {
-                is Resource.Error -> {
+                is com.example.lib_recipes.util.Resource.Error -> {
                     Toast.makeText(context, ingredientViewState.message, Toast.LENGTH_SHORT).show()
                 }
-                is Resource.Success -> {
+                is com.example.lib_recipes.util.Resource.Success -> {
                     ingredients = ingredientViewState.data
                     rvIngredients.adapter = IngredientListAdapter(ingredients, false)
                 }
-                is Resource.Loading -> {}
+                is com.example.lib_recipes.util.Resource.Loading -> {}
                 else -> {}
             }
         }
@@ -109,30 +109,36 @@ class EditRecipeFragment : Fragment() {
         if (itRecipeName.text.isNullOrEmpty() && itRecipeDescription.text.isNullOrEmpty()){
             findNavController().navigateUp()
         }else if(!itRecipeName.text.isNullOrEmpty() && !itRecipeDescription.text.isNullOrEmpty()){
-            viewModel.addRecipe(DummyRecipe(
-                id = args.recipe.id,
-                recipeId = args.recipe.recipeId,
-                recipe = itRecipeName.text.toString(),
-                description = itRecipeDescription.text.toString()
-            ))
+            viewModel.addRecipe(
+                com.example.lib_recipes.repo.models.DummyRecipe(
+                    id = args.recipe.id,
+                    recipeId = args.recipe.recipeId,
+                    recipe = itRecipeName.text.toString(),
+                    description = itRecipeDescription.text.toString()
+                )
+            )
             val action = EditRecipeFragmentDirections.goToHomeFragment()
             findNavController().navigate(action)
         }else if (!itRecipeName.text.isNullOrEmpty()){
-            viewModel.addRecipe(DummyRecipe(
-                id = args.recipe.id,
-                recipeId = args.recipe.recipeId,
-                recipe = itRecipeName.text.toString(),
-                description = args.recipe.description,
-            ))
+            viewModel.addRecipe(
+                com.example.lib_recipes.repo.models.DummyRecipe(
+                    id = args.recipe.id,
+                    recipeId = args.recipe.recipeId,
+                    recipe = itRecipeName.text.toString(),
+                    description = args.recipe.description,
+                )
+            )
             val action = EditRecipeFragmentDirections.goToHomeFragment()
             findNavController().navigate(action)
         }else if (!itRecipeDescription.text.isNullOrEmpty()){
-            viewModel.addRecipe(DummyRecipe(
-                id = args.recipe.id,
-                recipeId = args.recipe.recipeId,
-                recipe = args.recipe.recipe,
-                description = itRecipeDescription.text.toString(),
-            ))
+            viewModel.addRecipe(
+                com.example.lib_recipes.repo.models.DummyRecipe(
+                    id = args.recipe.id,
+                    recipeId = args.recipe.recipeId,
+                    recipe = args.recipe.recipe,
+                    description = itRecipeDescription.text.toString(),
+                )
+            )
         val action = EditRecipeFragmentDirections.goToHomeFragment()
         findNavController().navigate(action)
         }
