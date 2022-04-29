@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.thatshot.R
-import com.example.thatshot.adapter.RecipeListAdapter
+import com.example.thatshot.view.adapter.RecipeListAdapter
 import com.example.thatshot.databinding.FragmentHomeBinding
-import com.example.thatshot.domain.models.Recipe
-import com.example.thatshot.util.Resource
+import com.stephan.lib_recipe.domain.models.Recipe
+import com.stephan.lib_recipe.util.Resource
 import com.example.thatshot.viewmodels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -64,14 +64,14 @@ class HomeFragment : Fragment() {
         }
         viewModel.allRecipes.observe(viewLifecycleOwner) { viewState ->
             when (viewState) {
-                is Resource.Error<*> -> {
+                is com.stephan.lib_recipe.util.Resource.Error<*> -> {
                     Toast.makeText(context, viewState.message, Toast.LENGTH_SHORT).show()
                 }
-                is Resource.Success<*> -> {
+                is com.stephan.lib_recipe.util.Resource.Success<*> -> {
                     currentList = viewState.data as List<Recipe>
                     rvRecipes.adapter = RecipeListAdapter(viewState.data,::recipeSelected)
                 }
-                is Resource.Loading<*> -> {}
+                is com.stephan.lib_recipe.util.Resource.Loading<*> -> {}
                 else -> {}
             }
         }

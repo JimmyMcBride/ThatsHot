@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.thatshot.domain.models.Recipe
-import com.example.thatshot.domain.use_cases.UseCases
+import com.stephan.lib_recipe.domain.models.Recipe
+import com.stephan.lib_recipe.domain.use_cases.UseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

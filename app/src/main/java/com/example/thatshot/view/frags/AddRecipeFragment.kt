@@ -10,11 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.thatshot.adapter.IngredientListAdapter
+import com.example.thatshot.view.adapter.IngredientListAdapter
 import com.example.thatshot.databinding.FragmentAddRecipeBinding
-import com.example.thatshot.domain.models.Ingredient
-import com.example.thatshot.domain.models.Recipe
-import com.example.thatshot.util.Resource
+import com.stephan.lib_recipe.domain.models.Ingredient
+import com.stephan.lib_recipe.domain.models.Recipe
+import com.stephan.lib_recipe.util.Resource
 import com.example.thatshot.viewmodels.AddRecipeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -104,13 +104,13 @@ class AddRecipeFragment : Fragment() {
 
         viewModel.allRecipes.observe(viewLifecycleOwner) { recipeViewState ->
             when (recipeViewState) {
-                is Resource.Error<*> -> {
+                is com.stephan.lib_recipe.util.Resource.Error<*> -> {
                     Toast.makeText(context, recipeViewState.message, Toast.LENGTH_SHORT).show()
                 }
-                is Resource.Success<*> -> {
+                is com.stephan.lib_recipe.util.Resource.Success<*> -> {
                     recipeList = recipeViewState.data as List<Recipe>
                 }
-                is Resource.Loading<*> -> {}
+                is com.stephan.lib_recipe.util.Resource.Loading<*> -> {}
                 else -> {}
             }
 

@@ -6,8 +6,8 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class ThatsHotApplication : Application() {
 
-    override fun onCreate() {
-        super.onCreate()
-        FlipperProvider.init(this)
-    }
+//    override fun onCreate() {
+//        super.onCreate()
+//        FlipperProvider.init(this)
+//    }
 }

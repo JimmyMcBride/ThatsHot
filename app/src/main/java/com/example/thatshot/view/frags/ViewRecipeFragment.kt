@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.thatshot.adapter.IngredientListAdapter
+import com.example.thatshot.view.adapter.IngredientListAdapter
 import com.example.thatshot.databinding.FragmentViewRecipeBinding
-import com.example.thatshot.domain.models.Ingredient
-import com.example.thatshot.util.Resource
+import com.stephan.lib_recipe.domain.models.Ingredient
+import com.stephan.lib_recipe.util.Resource
 import com.example.thatshot.viewmodels.ViewRecipeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -65,14 +65,14 @@ class ViewRecipeFragment : Fragment() {
 
         viewModel.allIngredients.observe(viewLifecycleOwner) { ingredientViewState ->
             when (ingredientViewState) {
-                is Resource.Error<*> -> {
+                is com.stephan.lib_recipe.util.Resource.Error<*> -> {
                     Toast.makeText(context, ingredientViewState.message, Toast.LENGTH_SHORT).show()
                 }
-                is Resource.Success<*> -> {
+                is com.stephan.lib_recipe.util.Resource.Success<*> -> {
                     ingredients = ingredientViewState.data as List<Ingredient>
                     rvIngredients.adapter = IngredientListAdapter(ingredients, false)
                 }
-                is Resource.Loading<*> -> {}
+                is com.stephan.lib_recipe.util.Resource.Loading<*> -> {}
                 else -> {}
             }
         }
